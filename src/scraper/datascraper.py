@@ -8,10 +8,10 @@ userTweets_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?user_i
 with open('Credentials.txt', 'r') as cred:
     credentials = cred.readlines()
 
-CONSUMER_KEY = 'ki2injLpdVL2eqV3ZL79gcQo7'#credentials[0].strip()
-CONSUMER_SECRET = 'PKvpnkAr2oaHTKzL6Q2IKKbLhHvXSUiNgUdOJmY5AnKJZM9Qi9'#credentials[1].strip()
-ACCESS_KEY = '2597834149-P9kSt49DG0yNMEngqw6dnYb8C5T6znqQkpuDF1f'#credentials[2].strip()
-ACCESS_SECRET = 'FOoMWzMWJUzEfFGhj8ltGGvY0EPHEOZTwtoDMxltXFTKE'#credentials[3].strip()
+CONSUMER_KEY = credentials[0].strip()
+CONSUMER_SECRET = credentials[1].strip()
+ACCESS_KEY = credentials[2].strip()
+ACCESS_SECRET = credentials[3].strip()
 
 consumer = oauth.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
 access_token = oauth.Token(key=ACCESS_KEY, secret=ACCESS_SECRET)
