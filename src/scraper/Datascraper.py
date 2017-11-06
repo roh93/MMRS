@@ -1,5 +1,4 @@
 import json
-
 #userProfile_url = 'https://api.twitter.com/1.1/users/show.json?user_id=2597834149'
 #userTweets_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=2597834149&count=20'
 
