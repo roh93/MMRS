@@ -2,14 +2,7 @@
 import json
 import re  # used for tockenizing the tweet
 
-emoticons_str = r"""
-				(?:
-					[:=;] #Eyes
-					[oO\-]? #Nose
-					[D\)\]\(\]/\\OpP] # Mouth
-				)"""
 regex_str = [
-    emoticons_str,
     r'<[^>]+>',  # HTML Tags
     r'(?:@[\w_]+)',  # @-mentions
     r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)",  # Hashtags
@@ -21,7 +14,7 @@ regex_str = [
 ]
 
 tokens_re = re.compile(r'(' + '|'.join(regex_str) + ')', re.VERBOSE | re.IGNORECASE)
-emoticon_re = re.compile(r'^' + emoticons_str + '$', re.VERBOSE | re.IGNORECASE)
+emoticon_re = re.compile(r'^' + '$', re.VERBOSE | re.IGNORECASE)
 
 
 def tokenize(s):
@@ -30,10 +23,18 @@ def tokenize(s):
 
 def preprocess(s, lowercase=False):
     tokens = tokenize(s)
+    #emojiPresent = emoticonCheck(tokens)
+    #if(len(emojiPresent) != 0):
+        #print(emojiPresent)
+    #else:
     if lowercase:
-        tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
+            tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
 
+def emoticonCheck(tweets):
+    emoji_pattern = re.compile('[\U0001F300-\U0001F64F]')
+    emojis = emoji_pattern.findall(''.join(tweets))
+    return emojis
 
-sample_tweet = 'Never knew Glorious by Macklemore official music video was this sweet.😭'  # 'RT @imHarishRaman: just an example! :D http://example.com #NLP'
-print(preprocess(sample_tweet))
+#sample_tweet = 'Never knew Glorious by Macklemore official music video was this sweet.😭'  # 'RT @imHarishRaman: just an example! :D http://example.com #NLP'
+#tokenList = (preprocess(sample_tweet))

@@ -15,5 +15,5 @@
 
 __all__ = ['Datascraper.py', 'OauthConnectionClient']
 
-import SWIMMRS.src.scraper.Datascraper
-import SWIMMRS.src.scraper.OauthConnectionClient
+import src.scraper.Datascraper
+import src.scraper.OauthConnectionClient
